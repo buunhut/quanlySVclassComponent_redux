@@ -18,6 +18,7 @@ class FromSinhVien extends Component {
     },
     nutThem: true,
     disabled: true,
+    lockMa: false,
   };
   getInput = (event) => {
     let input = event.target;
@@ -72,11 +73,11 @@ class FromSinhVien extends Component {
       },
 
       nutThem: false,
+      lockMa: true,
     });
   };
   handleThemCapNhat = () => {
     let { sinhVien, error } = this.state;
-
     for (let key in sinhVien) {
       if (sinhVien[key] === "") {
         error[key] = "Không được bỏ trống";
@@ -123,6 +124,7 @@ class FromSinhVien extends Component {
           email: "",
         },
         nutThem: true,
+        lockMa: false,
       });
     } else {
       return;
@@ -147,6 +149,7 @@ class FromSinhVien extends Component {
                   height: "30px",
                   padding: "0 10px",
                 }}
+                disabled={this.state.lockMa}
                 onChange={this.getInput}
                 onBlur={this.getInput}
               />
