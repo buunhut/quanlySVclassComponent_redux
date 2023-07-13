@@ -31,7 +31,7 @@ class FromSinhVien extends Component {
       error[id] = "";
       // Kiểm tra định dạng email
       if (id === "email") {
-        const emailRegex = /^[a-zA-Z\sÀ-Ỹà-ỹ]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
           error[id] = "Định dạng email không hợp lệ";
         }
