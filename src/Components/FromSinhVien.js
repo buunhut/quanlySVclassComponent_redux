@@ -36,6 +36,13 @@ class FromSinhVien extends Component {
           error[id] = "Định dạng email không hợp lệ";
         }
       }
+      // Kiểm tra định dạng tên không chứa ký tự đặc biệt và số
+      if (id === "ten") {
+        const nameRegex = /^[a-zA-Z\s]*$/;
+        if (!nameRegex.test(value)) {
+          error[id] = "Tên không được chứa ký tự đặc biệt và số";
+        }
+      }
     }
     this.setState(
       {
