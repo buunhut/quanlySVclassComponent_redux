@@ -31,14 +31,14 @@ class FromSinhVien extends Component {
       error[id] = "";
       // Kiểm tra định dạng email
       if (id === "email") {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[a-zA-Z\sÀ-Ỹà-ỹ]+$/;
         if (!emailRegex.test(value)) {
           error[id] = "Định dạng email không hợp lệ";
         }
       }
       // Kiểm tra định dạng tên không chứa ký tự đặc biệt và số
       if (id === "ten") {
-        const nameRegex = /^[a-zA-Z\s]*$/;
+        const nameRegex = /^[a-zA-Z\sÀ-ỹ]+$/;
         if (!nameRegex.test(value)) {
           error[id] = "Tên không được chứa ký tự đặc biệt và số";
         }
@@ -231,7 +231,7 @@ class FromSinhVien extends Component {
                   fontSize: "18px",
                   cursor: "pointer",
                 }}
-                disabled={this.state.disabled}
+                // disabled={this.state.disabled}
                 onClick={this.handleThemCapNhat}
               >
                 {this.state.nutThem ? "Thêm" : "Cập nhật"}
