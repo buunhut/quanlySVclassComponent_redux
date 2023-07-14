@@ -22,12 +22,11 @@ class TableSinhVien extends Component {
   };
   render() {
     console.log("table sinh viên");
-    console.log(this.props.arrTimKiem);
+    console.log(this.props.timKiem);
 
-    let myArrRender =
-      this.props.arrTimKiem.length > 0
-        ? this.props.arrTimKiem
-        : this.props.arrSinhVien;
+    let myArrRender = this.props.timKiem
+      ? this.props.arrTimKiem
+      : this.props.arrSinhVien;
 
     return (
       <div style={{ textAlign: "center" }}>
@@ -120,6 +119,7 @@ const mapStateToProps = (state) => {
   return {
     arrSinhVien: state.duLieu.arrSinhVien,
     arrTimKiem: state.duLieu.arrTimKiem,
+    timKiem: state.duLieu.timKiem,
   };
 };
 const layDuLieuRedux = connect(mapStateToProps)(TableSinhVien);
