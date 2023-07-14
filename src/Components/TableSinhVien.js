@@ -12,12 +12,34 @@ class TableSinhVien extends Component {
   handleSuaSinhVien = (sinhVien) => {
     this.props.chucNang(sinhVien);
   };
+  handleTimKiemSinhVien = (event) => {
+    let duLieuTimKiem = { keyWords: event.target.value.toLowerCase() };
+    const action = {
+      type: "timKiemSinhVien",
+      payload: duLieuTimKiem,
+    };
+    this.props.dispatch(action);
+  };
   render() {
     console.log("table sinh viên");
+    console.log(this.props.arrTimKiem);
+
+    let myArrRender =
+      this.props.arrTimKiem.length > 0
+        ? this.props.arrTimKiem
+        : this.props.arrSinhVien;
 
     return (
       <div style={{ textAlign: "center" }}>
         <h1>DANH SÁCH SINH VIÊN</h1>
+        <div>
+          <input
+            type="text"
+            placeholder="Tìm kiếm sinh viên"
+            onChange={this.handleTimKiemSinhVien}
+            style={{ width: "100%", height: "30px", padding: "0 10px" }}
+          />
+        </div>
         <table
           style={{
             width: "600px",
@@ -41,7 +63,7 @@ class TableSinhVien extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.arrSinhVien?.map((sinhVien, index) => {
+            {myArrRender?.map((sinhVien, index) => {
               let { ma, ten, lop, email } = sinhVien;
               return (
                 <tr
@@ -97,6 +119,7 @@ class TableSinhVien extends Component {
 const mapStateToProps = (state) => {
   return {
     arrSinhVien: state.duLieu.arrSinhVien,
+    arrTimKiem: state.duLieu.arrTimKiem,
   };
 };
 const layDuLieuRedux = connect(mapStateToProps)(TableSinhVien);

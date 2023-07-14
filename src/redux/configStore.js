@@ -7,6 +7,14 @@ const initialState = {
     lop: "",
     email: "",
   },
+  arrTimKiem: [
+    // {
+    //   ma: "001",
+    //   ten: "nhựt",
+    //   lop: "12",
+    //   email: "nhut@gmail.com",
+    // },
+  ],
 };
 export const store = configureStore({
   reducer: {
@@ -18,6 +26,7 @@ export const store = configureStore({
           return {
             ...state,
             arrSinhVien,
+            arrTimKiem: [],
           };
         case "xoaSinhVien":
           let index = state.arrSinhVien.findIndex((item) => {
@@ -30,7 +39,7 @@ export const store = configureStore({
             arrSinhVien: xoaArrSinhVien,
           };
 
-        case "capnhat":
+        case "capNhat":
           let viTri = state.arrSinhVien.findIndex((sinhVien) => {
             return sinhVien.ma === action.payload.ma;
           });
@@ -40,6 +49,19 @@ export const store = configureStore({
           return {
             ...state,
             arrSinhVien: capNhatArrSinhVien,
+            arrTimKiem: [],
+          };
+        case "timKiemSinhVien":
+          let result = state.arrSinhVien.filter((sinhVien) => {
+            return (
+              sinhVien.ten.includes(action.payload.keyWords) ||
+              sinhVien.ma.includes(action.payload.keyWords)
+            );
+          });
+
+          return {
+            ...state,
+            arrTimKiem: result,
           };
         default:
           return state;

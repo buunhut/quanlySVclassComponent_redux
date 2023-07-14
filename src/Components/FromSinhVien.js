@@ -105,7 +105,7 @@ class FromSinhVien extends Component {
           }
         : // code của chức năng cập nhật
           {
-            type: "capnhat",
+            type: "capNhat",
             payload: sinhVien,
           };
       this.props.dispatch(action);
@@ -229,7 +229,7 @@ class FromSinhVien extends Component {
                   width: "100%",
                   height: "30px",
                   border: "none",
-                  backgroundColor: "black",
+                  backgroundColor: "green",
                   color: "white",
                   fontSize: "18px",
                   cursor: "pointer",
