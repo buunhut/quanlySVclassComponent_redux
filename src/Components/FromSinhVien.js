@@ -136,7 +136,11 @@ class FromSinhVien extends Component {
       <div id="sinhVien">
         <div style={{ textAlign: "center" }}>
           <h1>QUẢN LÝ SINH VIÊN</h1>
-          <form action="" style={{ width: "400px", marginTop: "10px" }}>
+          <form
+            id="myForm"
+            action=""
+            style={{ width: "400px", margin: "10px auto" }}
+          >
             <div>
               <input
                 id="ma"

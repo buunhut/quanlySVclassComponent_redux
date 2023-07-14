@@ -4,12 +4,56 @@
   box-sizing: border-box;
 }
 .container {
-  width: 1140px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 #sinhVien {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
+  flex-wrap: wrap;
   margin-top: 20px;
+  padding: 0 20px;
+}
+@media only screen and (max-width: 992px) {
+  .container {
+    width: 490px;
+  }
+  #sinhVien {
+    flex-direction: column;
+    align-items: center;
+  }
+  #myTable {
+    width: 100%;
+    margin-top: 20px;
+    overflow: auto;
+  }
+}
+@media only screen and (max-width: 786px) {
+  .container {
+    width: 490px;
+  }
+  #sinhVien {
+    flex-direction: column;
+    align-items: center;
+  }
+  #myTable {
+    width: 100%;
+    margin-top: 20px;
+    overflow: auto;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 490px;
+  }
+  #sinhVien {
+    flex-direction: column;
+    align-items: center;
+  }
+  #myTable {
+    width: 400px;
+    margin-top: 20px;
+    overflow: auto;
+  }
 }

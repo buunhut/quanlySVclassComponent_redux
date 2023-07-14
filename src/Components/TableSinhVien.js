@@ -29,7 +29,7 @@ class TableSinhVien extends Component {
       : this.props.arrSinhVien;
 
     return (
-      <div style={{ textAlign: "center" }}>
+      <div id="myTable" style={{ textAlign: "center" }}>
         <h1>DANH SÁCH SINH VIÊN</h1>
         <div>
           <input
